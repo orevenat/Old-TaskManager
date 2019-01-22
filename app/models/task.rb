@@ -1,0 +1,30 @@
+class Task < ApplicationRecord
+  belongs_to :author, class_name: 'User'
+  belongs_to :assignee, class_name: 'User', optional: true
+
+  validates :name, presence: true
+  validates :description, presence: true
+  validates :author, presence: true
+  validates :description, length: { maximum: 500 }
+
+  state_machine :initial => :new_task do
+    event :to_dev do
+      transition [:new_task, :in_qa, :in_code_review] => :in_development
+    end
+    event :to_qa do
+      transition :in_development => :in_qa
+    end
+    event :to_codereview do
+      transition :in_qa => :in_codereview
+    end
+    event :pre_realease do
+      transition :in_codereview => :ready_for_realease
+    end
+    event :realease do
+      transition :ready_for_realease => :realeased
+    end
+    event :to_archive do
+      transition [:new_task, :realesed] => :archived
+    end
+  end
+end

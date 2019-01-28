@@ -12,6 +12,7 @@ module Concerns
       current_user.present?
     end
 
+
     def authenticate_user!
       redirect_to new_session_path unless signed_in?
     end
@@ -19,7 +20,7 @@ module Concerns
     def current_user
       return if session[:user_id].blank?
 
-      @current_user ||= User.find_by(id: session[:user_id])
+      @_current_user ||= User.find_by(id: session[:user_id])
     end
   end
 end

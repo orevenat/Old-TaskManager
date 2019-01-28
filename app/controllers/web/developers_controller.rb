@@ -1,4 +1,4 @@
-class Web::DevelopersController < Web::AplicationController
+class Web::DevelopersController < Web::ApplicationController
   def new
     @developer = Developer.new
   end
@@ -17,7 +17,7 @@ class Web::DevelopersController < Web::AplicationController
   private
 
   def developer_params
-    params.require(:developer).premit(:first_name, :last_name, :email,
+    params.require(:developer).permit(:first_name, :last_name, :email,
                                       :password, :password_confirmation)
   end
 end

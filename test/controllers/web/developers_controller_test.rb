@@ -2,7 +2,7 @@ require 'test_helper'
 
 class Web::DevelopersControllerTest < ActionDispatch::IntegrationTest
   test 'should get new' do
-    get new_developer_url
+    get new_developers_url
     assert_response :success
   end
 

@@ -11,15 +11,15 @@ class Web::SessionsControllerTest < ActionDispatch::IntegrationTest
     user = create(:user, password: password)
     attrs = {
       email: user.email,
-      password: passsword
+      password: password
     }
     post session_url, params: { session: attrs }
-    assert_respons :redirect
+    assert_response :redirect
   end
 
   test 'should post delete' do
     delete session_url
-    asser_response :redirect
+    assert_response :redirect
   end
 
 end

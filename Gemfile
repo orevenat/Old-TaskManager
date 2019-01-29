@@ -41,6 +41,7 @@ gem 'therubyracer'
 gem 'less-rails' #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem 'twitter-bootstrap-rails'
 gem 'jquery-rails'
+gem 'coveralls', require: false
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
@@ -61,7 +62,6 @@ end
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
-  gem 'coveralls', require: false
   gem 'selenium-webdriver'
   gem 'simplecov', require: false
   # Easy installation and use of chromedriver to run system tests with Chrome

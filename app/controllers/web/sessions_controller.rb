@@ -22,6 +22,6 @@ class Web::SessionsController < Web::ApplicationController
   private
 
   def session_params
-    params.require(:session).premit(:email, :password)
+    params.require(:session).permit(:email, :password)
   end
 end

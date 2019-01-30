@@ -43,6 +43,7 @@ gem 'twitter-bootstrap-rails'
 gem 'jquery-rails'
 gem 'coveralls', require: false
 gem 'rollbar'
+gem 'newrelic_rpm'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false

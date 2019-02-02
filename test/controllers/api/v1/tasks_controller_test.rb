@@ -1,8 +1,9 @@
 require 'test_helper'
+include Concerns::AuthHelper
 
 class Api::V1::TasksControllerTest < ActionController::TestCase
   test 'should get show' do
-    author = create :user
+    author = create :manager
     task = create :task, author: author
     get :show, params: { id: task.id, format: :json }
     assert_response :success
@@ -14,11 +15,11 @@ class Api::V1::TasksControllerTest < ActionController::TestCase
   end
 
   test 'should post create' do
-    author = create :user
+    author = create :manager
     sign_in(author)
-    assignee = create :user
+    assignee = create :developer
     task_attributes = attributes_for(:task)
-      .merge({ assignee_id: assignee.id })
+      .merge({ author_id: author.id, assignee_id: assignee.id })
     post :create, params: { task: task_attributes, format: :json }
     assert_response :created
 
@@ -30,8 +31,8 @@ class Api::V1::TasksControllerTest < ActionController::TestCase
   end
 
   test 'should put update' do
-    author = create :user
-    assignee = create :user
+    author = create :manager
+    assignee = create :developer
     task = create :task, author: author
     task_attributes = attributes_for(:task)
       .merge({ author_id: author.id, assignee_id: assignee.id })
@@ -45,7 +46,7 @@ class Api::V1::TasksControllerTest < ActionController::TestCase
   end
 
   test 'should delete destroy' do
-    author = create :user
+    author = create :manager
     task = create :task, author: author
     delete :destroy, params: { id: task.id, format: :json }
     assert_response :success

@@ -1,5 +1,29 @@
 {
   "name": "task_manager",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/preset-react": "^7.0.0",
+    "@rails/webpacker": "3.5",
+    "babel-eslint": "^10.0.1",
+    "babel-loader": "^8.0.5",
+    "react": "^16.8.1",
+    "react-dom": "^16.8.1",
+    "react-trello": "^2.0.10",
+    "webpacker-react": "^0.3.2"
+  },
+  "devDependencies": {
+    "eslint": "^5.13.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-loader": "^2.1.2",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-react": "^7.12.4",
+    "eslint-plugin-standard": "^4.0.0",
+    "prettier": "1.16.4",
+    "webpack-dev-server": "2.11.2"
+  },
+  "scripts": {
+    "lint": "eslint --ext .js --ext .jsx app/javascript"
+  }
 }

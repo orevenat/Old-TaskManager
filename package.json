@@ -9,6 +9,7 @@
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.5",
     "react": "^16.8.1",
+    "react-bootstrap": "^1.0.0-beta.5",
     "react-dom": "^16.8.1",
     "react-trello": "^2.0.10",
     "webpacker-react": "^0.3.2"

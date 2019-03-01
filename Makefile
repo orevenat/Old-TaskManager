@@ -1,6 +1,9 @@
 install:
 	docker-compose run --rm web bash -c "bundle install"
 
+yarn-install:
+	docker-compose run --rm web bash -c "yarn install"
+
 setup-db:
 	docker-compose run --rm web bash -c "rails db:setup"
 
